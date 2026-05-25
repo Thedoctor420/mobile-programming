@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Program</title>
+</head>
+<body>
+
+<h2>ATM Transaction</h2>
+<p id="demo"></p>
+
+<script>
+    // Starting balance
+    let balance = 1000;
+
+    // Ask user for transaction type
+    let choice = prompt("Enter transaction type: deposit or withdraw");
+
+    // Ask for amount
+    let amount = Number(prompt("Enter amount:"));
+
+    // Control statements
+    if (choice === "deposit") {
+        balance = balance + amount;
+        message = "Deposit Successful!";
+    } 
+    else if (choice === "withdraw") {
+        if (amount <= balance) {
+            balance = balance - amount;
+            message = "Withdrawal Successful!";
+        } else {
+            message = "Insufficient Balance!";
+        }
+    } 
+    else {
+        message = "Invalid Transaction Type!";
+    }
+
+    // Display result
+    document.getElementById("demo").innerHTML =
+        message + "<br>" +
+        "Total Balance: $" + balance;
+</script>
+
+</body>
+</html>
